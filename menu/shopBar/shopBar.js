@@ -158,6 +158,21 @@
             $('.left-item.active').click();
 
         });
+        
+        // 给清空购物车按钮添加点击事件
+        $('.shop-bar').on('click', '.clear-car',function (e) {
+        // 修改挂载到choose-item'中的数据
+        var $item = $strTop.find('.choose-item');
+        //循环将所有被选中的商品的标签的chooseCount数据修改为零
+        for (var i = 0; i < $item.length; i++) {
+            console.log($item[i]);
+            $($item[i]).data('itemData').chooseCount = 0;
+        }
+
+        renderItems();
+            
+        $('.left-item.active').click();
+    });
     }
 
 
